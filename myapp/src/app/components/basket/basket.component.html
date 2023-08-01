@@ -1,0 +1,30 @@
+<div class="container">
+    <h2 class="alert alert-success mt-2">Your cart</h2>
+<table class="table table-hover mt-2">
+    
+    <thead  >
+        <tr>
+            <th>#</th>
+            <th>Product Name</th>
+            <th>Photo</th>
+            <th>Process</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let basket of baskets let index=index">
+            <td>{{index+1}}</td>
+            <td>{{basket.productName}}</td>
+            <td>
+                <img [src]="basket.productPhoto" width="50px" heigh="50px">
+            </td>
+            <td>
+                <button type="button" class="btn btn-danger" (click)="delete(basket.id)">
+                    <i class="fa fa-trash"></i>
+                    delete</button>                
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+
+</div>
