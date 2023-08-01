@@ -9,12 +9,13 @@
     <div class="row">
         <div class="col-md-3 mt-2"  *ngFor="let product of products" style="margin-right: 10px;margin-bottom: 10px;">
             <div class="card" style="width: 18rem;">
-                <img src="https://images.migrosone.com/sanalmarket/product/28080000/domates-kg-c7462d-1650x1650.jpg" class="card-img-top" alt="...">
+                <img [src]="product.productPhoto" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">{{product.productName}}</h5>
+                   <button class="btn btn-warning w-100 mt-2">
+                    <i class="fa fa-plus"></i>
+                    Add to Cart</button>
+                   
                 </div>
             </div>
 
@@ -25,19 +26,26 @@
   
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-dialog modal-dialog-centered ">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Adding Product</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
+         <div class="form-group mt-2">
+            <label for="productName"  >Product Name</label>
+            <input type="text" id="productName" class="form-control"  [(ngModel)]="product.productName">
+         </div>
+         <div class="form-group mt-2">
+            <label for="productPhoto">Product Photo</label>
+            <input type="text" id="productPhoto" class="form-control"   [(ngModel)]="product.productPhoto">
+         </div>
+         <div class="form-group mt-2">
+            <button class="btn btn-primary w-100"  (click)="addProduct()" >Add Product</button>
+         </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+       
       </div>
     </div>
   </div>
