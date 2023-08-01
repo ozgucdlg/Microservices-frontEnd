@@ -12,7 +12,7 @@
                 <img [src]="product.productPhoto" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{product.productName}}</h5>
-                   <button class="btn btn-warning w-100 mt-2">
+                   <button class="btn btn-warning w-100 mt-2"  (click)="addToCart(product)">
                     <i class="fa fa-plus"></i>
                     Add to Cart</button>
                    

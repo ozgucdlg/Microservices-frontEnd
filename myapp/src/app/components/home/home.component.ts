@@ -1,5 +1,7 @@
+import { BasketService } from './../../service/basket.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { BasketModel } from 'src/app/models/basket.model';
 import { ProductModel } from 'src/app/models/products.model';
 
 @Component({
@@ -11,11 +13,16 @@ export class HomeComponent implements OnInit{
 
   api:string=" http://localhost:3000/"
   product:ProductModel= new ProductModel();
+ 
   products:ProductModel[]=[  ];
 
-  constructor(private httpClient:HttpClient){
+ 
+
+  constructor(private httpClient:HttpClient, private BasketService:BasketService){
     }
   ngOnInit(): void {
+    
+    
     this.getProductList();
    
   }
@@ -35,8 +42,23 @@ export class HomeComponent implements OnInit{
       this.product= new ProductModel();
     },
     error:(err)=>console.log(err)
-   })
-   
+   })  
   }
 
+  addToCart(model:ProductModel){
+
+    this.httpClient.post<any>(this.api + "baskets",model ).subscribe({
+      next:()=> {console.log("Sepete urun eklendi")
+      this.getBasket();
+    },
+      error:(err)=>console.log(err)
+    })
+  }
+
+  getBasket(){
+    this.httpClient.get<any>(this.api +  "baskets" ).subscribe({
+      next:(res)=> this.BasketService.baskets= res,
+      error:(err)=>console.log(err)
+    })
+  }
 }
