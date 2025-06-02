@@ -1,27 +1,63 @@
-# Myapp
+# Microservices Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+This is the frontend application for the Microservices project, built with Angular 15.
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Node.js (v14 or higher)
+- npm (v6 or higher)
+- Angular CLI (v15)
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Install dependencies:
+```bash
+npm install
+```
 
-## Build
+2. Install Angular CLI globally (if not already installed):
+```bash
+npm install -g @angular/cli@15
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Running the Application
 
-## Running unit tests
+1. Start the backend server first (make sure it's running on port 3000)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. Start the Angular development server:
+```bash
+ng serve
+```
 
-## Running end-to-end tests
+3. Open your browser and navigate to:
+- Default: `http://localhost:4200`
+- If port 4200 is in use, the CLI will suggest an alternative port (e.g., `http://localhost:53756`)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Features
 
-## Further help
+- User authentication (login/register)
+- Product listing
+- Shopping cart functionality
+- Order management
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Project Structure
+
+- `src/app/components/` - Angular components
+- `src/app/services/` - Service classes for API communication
+- `src/app/models/` - TypeScript interfaces and models
+- `src/app/interceptors/` - HTTP interceptors
+
+## Dependencies
+
+- Angular 15.2.9
+- Bootstrap 5.3.1
+- Font Awesome
+- RxJS
+
+## Development
+
+The application uses:
+- Reactive Forms for form handling
+- HTTP Client for API communication
+- Router for navigation
+- Bootstrap for styling
